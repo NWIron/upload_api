@@ -1,3 +1,3 @@
 # upload_api
-File Uploader API
+File Upload API
 Design By Nathan W
