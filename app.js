@@ -30,6 +30,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/fileList', fileListRouter);
 app.use('/fileUpload', fileUploadRouter);
+app.use('/fileDownload', fileDownloadRouter);
 
 
 // catch 404 and forward to error handler
