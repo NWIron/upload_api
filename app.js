@@ -10,6 +10,7 @@ var indexRouter = require('./routes/index');
 var fileListRouter = require('./routes/file_list');
 var fileUploadRouter = require('./routes/file_upload');
 var fileDownloadRouter = require('./routes/file_download');
+var fileDeleteRouter = require('./routes/file_delete');
 
 var app = express();
 
@@ -17,20 +18,21 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+/* CORS Configuration */
+app.use(cors());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-/* CORS Configuration */
-app.use(cors());
-
 /* Setup Router */
 app.use('/', indexRouter);
 app.use('/fileList', fileListRouter);
 app.use('/fileUpload', fileUploadRouter);
 app.use('/fileDownload', fileDownloadRouter);
+app.use('/fileDelete', fileDeleteRouter);
 
 
 // catch 404 and forward to error handler
