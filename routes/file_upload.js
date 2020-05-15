@@ -9,13 +9,18 @@ const folderPath = 'C:/Attachments';
 
 /* Setup File Name & Location */
 var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const { fiori_app, plant, material_number, batch } = req.body;
-        let storagePath = path.join(folderPath, fiori_app, plant, material_number, batch);
-        validateDir(storagePath); // Storage Path
+    destination: (req, file, cb) => {   //Setup Storage Location
+        let keys = req.body.keys.split(',');
+        let storagePath = folderPath;
+
+        keys.forEach(element => {
+            storagePath = path.join(storagePath, element);
+        });
+
+        validateDir(storagePath);       //Validate Storage Path
         cb(null, storagePath);
     },
-    filename: (req, file, cb) => {
+    filename: (req, file, cb) => {      //Setup File Name
         //var arr = file.originalname.split(".");
         //var lastname = arr[arr.length - 1];
         //cb(null, file.fieldname + "-" + Date.now() + "." + lastname);
@@ -36,7 +41,6 @@ validateDir = (dirname) => {
         }
     }
 }
-
 
 /* Upload Single File */
 router.post('/', upload.single('file'), (req, res, next) => {

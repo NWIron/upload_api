@@ -38,8 +38,13 @@ getJsonFile = (storagePath) => {
 
 /* GET File List. */
 router.get('/', (req, res, next) => {
-  const { fiori_app, plant, material_number, batch } = req.query;
-  let storagePath = path.join(folderPath, fiori_app, plant, material_number, batch);
+  let keys = req.query.keys;
+  let storagePath = folderPath;
+
+  keys.forEach(element => {
+      storagePath = path.join(storagePath, element);
+  });
+
   res.send(getJsonFile(storagePath));
 });
 

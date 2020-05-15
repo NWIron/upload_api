@@ -7,8 +7,13 @@ const folderPath = 'C:/Attachments';
 
 /* GET File Downloading */
 router.get('/', (req, res, next) => {
-  const { file_name, fiori_app, plant, material_number, batch } = req.query;
-  let storagePath = path.join(folderPath, fiori_app, plant, material_number, batch, file_name);
+  let keys = req.query.keys;
+  let storagePath = folderPath;
+
+  keys.forEach(element => {
+    storagePath = path.join(storagePath, element);
+  });
+
   res.download(storagePath);
 });
 

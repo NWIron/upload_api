@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const fs = require('fs');
 const path = require('path');
 
@@ -8,15 +8,21 @@ const folderPath = 'C:/Attachments';
 
 /* POST Delete File */
 router.post('/', function (req, res, next) {
-    const { file_name, fiori_app, plant, material_number, batch } = req.body;
-    let storagePath = path.join(folderPath, fiori_app, plant, material_number, batch, file_name);
+    let keys = req.body.keys;
+    let storagePath = folderPath;
+
+    keys.forEach(element => {
+        storagePath = path.join(storagePath, element);
+    });
+
+    /* Delete Selected File */
     fs.unlink(storagePath, (error) => {
         if (error) {
 
         } else {
             res.send(JSON.stringify(req.body));
         }
-    })
+    });
 });
 
 module.exports = router;
