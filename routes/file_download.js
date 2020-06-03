@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 /* Setup Folder Path */
-const folderPath = 'C:/Attachments';
+const folderPath = 'C:/Files';
 
 /* GET File Downloading */
 router.get('/', (req, res, next) => {

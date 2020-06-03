@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 /* Setup Folder Path */
-const folderPath = 'C:/Attachments';
+const folderPath = 'C:/Files';
 
 /* Setup File Name & Location */
 var storage = multer.diskStorage({

@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 /* Setup Folder Path */
-const folderPath = 'C:/Attachments';
+const folderPath = 'C:/Files';
 
 /* POST Delete File */
 router.post('/', function (req, res, next) {
