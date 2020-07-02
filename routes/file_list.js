@@ -42,7 +42,7 @@ router.get('/', (req, res, next) => {
   let storagePath = folderPath;
 
   keys.forEach(element => {
-      storagePath = path.join(storagePath, element);
+    storagePath = path.join(storagePath, element);
   });
 
   res.send(getJsonFile(storagePath));

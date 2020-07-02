@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+const log_mysql = require('../logs/log_mysql.js');
 
 /* Setup Folder Path */
 const folderPath = 'C:/Files';
@@ -44,7 +45,9 @@ validateDir = (dirname) => {
 
 /* Upload Single File */
 router.post('/', upload.single('file'), (req, res, next) => {
-    res.send({ ret_code: '0' });
+    /* Generate Upload Log */
+    log_mysql.file_upload_log(req, res, next);
+    res.end("Upload Completed");
 });
 
 module.exports = router;
