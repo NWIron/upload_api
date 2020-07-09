@@ -22,7 +22,6 @@ module.exports = {
             let storagePath = path.join(req.file.destination, req.file.filename)
 
             let addSql = 'INSERT INTO file_logs(datetime,file_name,file_path,user,action) VALUES(?,?,?,?,?)';
-            //let addSqlParams = ['2020-07-01 4:00:00', 'test.txt', 'test', 'NW', 'upload'];
             let addSqlParams = [req._startTime, req.file.filename, storagePath, req.body.user, 'upload'];
             //Query With Connection
             connection.query(addSql, addSqlParams, function (error, results) {
