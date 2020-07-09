@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 /* Setup Folder Path */
-const folderPath = 'C:/Files';
+const folderPath = 'C:/SAP Attachments';
 
 /* Get Json File List */
 getJsonFile = (storagePath) => {

@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path');
 
 /* Setup Folder Path */
-const folderPath = 'C:/Files';
+const folderPath = 'C:/SAP Attachments';
 
 /* GET File Downloading */
 router.get('/', (req, res, next) => {

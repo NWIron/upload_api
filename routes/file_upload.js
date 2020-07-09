@@ -6,7 +6,7 @@ const path = require('path');
 const log_mysql = require('../logs/log_mysql.js');
 
 /* Setup Folder Path */
-const folderPath = 'C:/Files';
+const folderPath = 'C:/SAP Attachments';
 
 /* Setup File Name & Location */
 var storage = multer.diskStorage({
