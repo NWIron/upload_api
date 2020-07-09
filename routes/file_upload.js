@@ -46,7 +46,7 @@ validateDir = (dirname) => {
 /* Upload Single File */
 router.post('/', upload.single('file'), (req, res, next) => {
     /* Generate Upload Log */
-    log_mysql.file_upload_log(req, res, next);
+    // log_mysql.file_upload_log(req, res, next);
     res.end("Upload Completed");
 });
 

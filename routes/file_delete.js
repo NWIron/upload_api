@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const path = require('path');
+const log_mysql = require('../logs/log_mysql.js');
 
 /* Setup Folder Path */
 const folderPath = 'C:/Files';
@@ -21,6 +22,7 @@ router.post('/', function (req, res, next) {
 
         } else {
             res.send(JSON.stringify(req.body));
+            // log_mysql.file_delete_log(req, res, next);
         }
     });
 });
