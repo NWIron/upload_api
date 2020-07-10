@@ -8,3 +8,6 @@ API Support:
 * File Download
 * Get File List With Directory
 * Delete File
+
+## Version v1.1 Feature Update
+* MYSQL logs function, record update & delete actions.
