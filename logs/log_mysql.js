@@ -8,7 +8,7 @@ const pool = mysql.createPool({
     database: 'file_log'
 });
 
-const folderPath = 'C:/Files';
+const folderPath = 'C:/SAP Attachments';
 
 module.exports = {
     file_upload_log: (req, res, next) => {
