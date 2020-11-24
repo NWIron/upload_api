@@ -7,6 +7,8 @@
 var app = require('../app');
 var debug = require('debug')('upload-api:server');
 var http = require('http');
+var https = require('https');
+var fs = require('fs');
 
 /**
  * Get port from environment and store in Express.
@@ -16,10 +18,14 @@ var port = normalizePort(process.env.PORT || '8080');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTPS server.
  */
+const key = fs.readFileSync('C:/PM2/Keys/wildcard_ticel_cl_pem.key');
+const cert = fs.readFileSync('C:/PM2/Keys/wildcard_ticel_cl.crt');
+const credentials = { key, cert };
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
+var server = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.
