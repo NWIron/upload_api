@@ -6,7 +6,7 @@ const path = require('path');
 const log_mysql = require('../logs/log_mysql.js');
 
 /* Setup Folder Path */
-const folderPath = 'C:/SAP Attachments';
+const folderPath = 'D:/Archive/3--Sample & Production  样件';
 
 /* Setup File Name & Location */
 var storage = multer.diskStorage({
@@ -25,7 +25,7 @@ var storage = multer.diskStorage({
         //var arr = file.originalname.split(".");
         //var lastname = arr[arr.length - 1];
         //cb(null, file.fieldname + "-" + Date.now() + "." + lastname);
-        cb(null, Date.now() + "_" + file.originalname);
+        cb(null, file.originalname);
     }
 });
 
@@ -44,7 +44,7 @@ validateDir = (dirname) => {
 }
 
 /* Upload Single File */
-router.post('/', upload.single('file'), (req, res, next) => {
+router.post('/', upload.array("file", 20), (req, res, next) => {
     /* Generate Upload Log */
     // log_mysql.file_upload_log(req, res, next);
     res.end("Upload Completed");
