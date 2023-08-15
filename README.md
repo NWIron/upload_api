@@ -1,6 +1,5 @@
 # Upload API
-File Upload API
-Design By Nathan W
+File Upload API for SAP Fiori
 
 ## Call API From Fiori
 API Support:
